@@ -115,25 +115,25 @@ const ExpResult = [{
 }
 ]
   
-  const Reg_form = (TestData, ExpResult) =>
+  const Reg_form = (testData, expResult) =>
 
   function () {
 
-    cy.get('#AccountFrm_firstname').should('be.empty').type(`${TestData.firstName}`).should('have.value', `${ExpResult.firstName}`);
-    cy.get('#AccountFrm_lastname').should('be.empty').type(`${TestData.lastName}`).should('have.value', `${ExpResult.lastName}`);
-    cy.get('#AccountFrm_email').should('be.empty').type(`${TestData.email}`).should('have.value', `${ExpResult.email}`);
-    cy.get('#AccountFrm_telephone').should('be.empty').type(`${TestData.telephone}`).should('have.value', `${ExpResult.telephone}`);
-    cy.get('#AccountFrm_fax').should('be.empty').type(`${TestData.fax}`).should('have.value', `${ExpResult.fax}`);
-    cy.get('#AccountFrm_company').should('be.empty').type(`${TestData.company}`).should('have.value', `${ExpResult.company}`);
-    cy.get('#AccountFrm_address_1').should('be.empty').type(`${TestData.address1}`).should('have.value', `${ExpResult.address1}`);
-    cy.get('#AccountFrm_address_2').should('be.empty').type(`${TestData.address2}`).should('have.value', `${ExpResult.address2}`);
-    cy.get('#AccountFrm_city').should('be.empty').type(`${TestData.city}`).should('have.value', `${ExpResult.city}`);
-    cy.get('#AccountFrm_country_id').select(`${TestData.country}`).should('contain', `${ExpResult.country}`);
-    cy.get('#AccountFrm_zone_id').select(`${TestData.region}`).should('contain', `${ExpResult.region}`);
-    cy.get('#AccountFrm_postcode').should('be.empty').type(`${TestData.postcode}`).should('have.value', `${ExpResult.postcode}`);
-    cy.get('#AccountFrm_loginname').should('be.empty').type(`${TestData.login}`).should('have.value', `${ExpResult.login}`);
-    cy.get('#AccountFrm_password').should('be.empty').type(`${TestData.password}`).should('have.value', `${ExpResult.password}`);
-    cy.get('#AccountFrm_confirm').should('be.empty').type(`${TestData.confirmpassword}`).should('have.value', `${ExpResult.confirmpassword}`);
+    cy.get('#AccountFrm_firstname').should('be.empty').type(`${testData.firstName}`).should('have.value', `${expResult.firstName}`);
+    cy.get('#AccountFrm_lastname').should('be.empty').type(`${testData.lastName}`).should('have.value', `${expResult.lastName}`);
+    cy.get('#AccountFrm_email').should('be.empty').type(`${testData.email}`).should('have.value', `${expResult.email}`);
+    cy.get('#AccountFrm_telephone').should('be.empty').type(`${testData.telephone}`).should('have.value', `${expResult.telephone}`);
+    cy.get('#AccountFrm_fax').should('be.empty').type(`${testData.fax}`).should('have.value', `${expResult.fax}`);
+    cy.get('#AccountFrm_company').should('be.empty').type(`${testData.company}`).should('have.value', `${expResult.company}`);
+    cy.get('#AccountFrm_address_1').should('be.empty').type(`${testData.address1}`).should('have.value', `${expResult.address1}`);
+    cy.get('#AccountFrm_address_2').should('be.empty').type(`${testData.address2}`).should('have.value', `${expResult.address2}`);
+    cy.get('#AccountFrm_city').should('be.empty').type(`${testData.city}`).should('have.value', `${expResult.city}`);
+    cy.get('#AccountFrm_country_id').select(`${testData.country}`).should('contain', `${expResult.country}`);
+    cy.get('#AccountFrm_zone_id').select(`${testData.region}`).should('contain', `${expResult.region}`);
+    cy.get('#AccountFrm_postcode').should('be.empty').type(`${testData.postcode}`).should('have.value', `${expResult.postcode}`);
+    cy.get('#AccountFrm_loginname').should('be.empty').type(`${testData.login}`).should('have.value', `${expResult.login}`);
+    cy.get('#AccountFrm_password').should('be.empty').type(`${testData.password}`).should('have.value', `${expResult.password}`);
+    cy.get('#AccountFrm_confirm').should('be.empty').type(`${testData.confirmpassword}`).should('have.value', `${expResult.confirmpassword}`);
     cy.get('#AccountFrm_newsletter1').click();
     cy.get('[class="col-md-6 mt20 mb40"] [onclick]').should('have.attr', 'href');
     cy.get('[class="col-md-6 mt20 mb40"]').should('contain', 'I have read and agree to the');
@@ -191,15 +191,16 @@ describe('Autorization', () => {
     password: '123qwe'    
   }]
 
-  const Aut_form = (TestData, ExpResult) =>
+  const Aut_form = (testData, expResult) =>
 
   function () {
     cy.get('#loginFrm .control-label.col-sm-4').eq(0).should('contain', 'Login Name:');
-    cy.get('#loginFrm_loginname').should('be.empty').type(`${TestData.login}`).should('have.value', `${ExpResult.login}`);
+    cy.get('#loginFrm_loginname').should('be.empty').type(`${testData.login}`).should('have.value', `${expResult.login}`);
     cy.get('#loginFrm .control-label.col-sm-4').eq(1).should('contain', 'Password:');
-    cy.get('#loginFrm_password').should('be.empty').type(`${TestData.password}`).should('have.value', `${ExpResult.password}`);
+    cy.get('#loginFrm_password').should('be.empty').type(`${testData.password}`).should('have.value', `${expResult.password}`);
     cy.get('#loginFrm button').should('contain', 'Login').click();
     cy.get('span.subtext').should('not.be.empty');
+    cy.get('#customer_menu_top .menu_text').should('contain', 'Welcome back');
     /*cy.location().then ( location => {
       expect(location.pathname).to.be.eq('/index.php?rt=account/account');      
     }) */
