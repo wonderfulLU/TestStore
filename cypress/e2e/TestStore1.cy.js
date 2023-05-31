@@ -1,6 +1,6 @@
 /// <reference types="cypress"/> 
 
-describe.skip('Registration', () => {
+describe('Registration', () => {
 
   beforeEach(() => { 
     cy.visit('https://automationteststore.com/');
@@ -12,7 +12,7 @@ describe.skip('Registration', () => {
   let Users = [{
     firstName: 'Anastasiya',
     lastName: 'Lushkova',
-    email: '111@mail.com',
+    email: 't111@mail.com',
     telephone: '+123456789',
     fax: '987654321',
     company: 'UDS',
@@ -22,7 +22,7 @@ describe.skip('Registration', () => {
     region: 'Kyiv',
     postcode:'02000',
     country: 'Ukraine',
-    login: 'Nassty',
+    login: 'Nassttty',
     password: '123cghj',
     confirmpassword: '123cghj'
   },
@@ -65,7 +65,7 @@ describe.skip('Registration', () => {
 const ExpResult = [{
   firstName: 'Anastasiya',
     lastName: 'Lushkova',
-    email: '111@mail.com',
+    email: 't111@mail.com',
     telephone: '+123456789',
     fax: '987654321',
     company: 'UDS',
@@ -75,7 +75,7 @@ const ExpResult = [{
     region: 'Kyiv',
     postcode:'02000',
     country: 'Ukraine',
-    login: 'Nassty',
+    login: 'Nassttty',
     password: '123cghj',
     confirmpassword: '123cghj'
 },
@@ -169,7 +169,7 @@ describe('Autorization', () => {
   })
 
   let autUsers = [{    
-    login: 'Nassty',
+    login: 'Nassttty',
     password: '123cghj'    
   },
   {    
@@ -179,7 +179,7 @@ describe('Autorization', () => {
 ]
 
   const autExpResult = [{
-    login: 'Nassty',
+    login: 'Nassttty',
     password: '123cghj'
   },
 {    
