@@ -9,8 +9,8 @@ describe('Registration/Autorization', () => {
     cy.log('Open website login page');
     homePage.visit();
     homePage.getLoginorRegisterButton().click();
-    cy.visit('https://automationteststore.com/');
-    cy.contains('a', 'Login or register').click();
+    //cy.visit('https://automationteststore.com/');
+    //cy.contains('a', 'Login or register').click();
 
     cy.get('#customer_menu_top').click();    
   })
@@ -28,7 +28,7 @@ describe('Registration/Autorization', () => {
     region: 'Kyiv',
     postcode:'02000',
     country: 'Ukraine',
-    login: 'Nassty',
+    username: 'Nassty',
     password: '123cghj',
     confirmpassword: '123cghj',
 
@@ -53,7 +53,7 @@ describe('Registration/Autorization', () => {
     cy.get('#AccountFrm_country_id').select(`${testData.country}`).should('contain', `${testData.country}`);
     cy.get('#AccountFrm_zone_id').select(`${testData.region}`).should('contain', `${testData.region}`);
     cy.get('#AccountFrm_postcode').should('be.empty').type(`${testData.postcode}`).should('have.value', `${testData.postcode}`);
-    cy.get('#AccountFrm_loginname').should('be.empty').type(`${testData.login}`).should('have.value', `${testData.login}`);
+    cy.get('#AccountFrm_loginname').should('be.empty').type(`${testData.username}`).should('have.value', `${testData.username}`);
     cy.get('#AccountFrm_password').should('be.empty').type(`${testData.password}`).should('have.value', `${testData.password}`);
     cy.get('#AccountFrm_confirm').should('be.empty').type(`${testData.confirmpassword}`).should('have.value', `${testData.confirmpassword}`);
     cy.get('#AccountFrm_newsletter1').click();
@@ -75,7 +75,7 @@ describe('Registration/Autorization', () => {
 
     cy.get('#loginFrm .control-label.col-sm-4').eq(0).should('contain', 'Login Name:');
     cy.get('#loginFrm .control-label.col-sm-4').eq(1).should('contain', 'Password:');
-    loginPage.submitLoginForm(`${testData.login}`, `${testData.password}`);
+    loginPage.submitLoginForm(`${testData.username}`, `${testData.password}`);
     //cy.get('#loginFrm_loginname').should('be.empty').type(`${testData.login}`).should('have.value', `${testData.login}`);
     //cy.get('#loginFrm_password').should('be.empty').type(`${testData.password}`).should('have.value', `${testData.password}`);
     //cy.get('button[title="Login"]').should('contain', 'Login').click();
@@ -86,9 +86,9 @@ describe('Registration/Autorization', () => {
 
   it('Shoping', () => {   
       
-    homePage.visit();
-    homePage.getLoginorRegisterButton().click();
-    loginPage.submitLoginForm(`${testData.login}`, `${testData.password}`);
+    //homePage.visit();
+    //homePage.getLoginorRegisterButton().click();
+    loginPage.submitLoginForm(`${testData.username}`, `${testData.password}`);
   
     cy.get('#filter_keyword').should('have.attr', 'placeholder', 'Search Keywords').type(`${testData.keyword}`);
     cy.get('.button-in-search').click();
@@ -101,7 +101,6 @@ describe('Registration/Autorization', () => {
     cy.get('#cart_checkout1').should('contain', 'Checkout').click();
     cy.get('#checkout_btn').should('contain', 'Confirm Order').click();
     cy.get('span.maintext').should('contain', ' Your Order Has Been Processed!');
-
        
-})
+  })
 })

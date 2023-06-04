@@ -1,6 +1,6 @@
 class LoginPage {
     visit(){
-        cy.visit('https://automationteststore.com/index.php?rt=account/login');
+        cy.visit('/index.php?rt=account/login');
     }
 
     getLoginField(){
@@ -15,10 +15,10 @@ class LoginPage {
         return cy.get('button[title="Login"]');
     }
 
-    submitLoginForm(login, password){
-        cy.log(`Auth user with username: ${login} and pass: ${password}`);
+    submitLoginForm(username, password){
+        cy.log(`Auth user with username: ${username} and pass: ${password}`);
 
-        this.getLoginField().type(login)
+        this.getLoginField().type(username)
         this.getPasswordField().type(password)
         this.getSubmitButton().click()
     }

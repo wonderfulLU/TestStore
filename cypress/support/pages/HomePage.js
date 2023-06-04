@@ -1,6 +1,6 @@
 class HomePage {
     visit(){
-        cy.visit('https://automationteststore.com/');
+        cy.visit('/');
     }
 
     getLoginorRegisterButton(){
