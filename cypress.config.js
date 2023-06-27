@@ -3,7 +3,14 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   viewportHeight: 1080, //розширення екрану
   viewportWidth: 1920,
-  watchForFileChanges: false, //щоб cypress не перезавантажувався після кожної зміни
+  watchForFileChanges: false,
+    reporter: 'mochawesome',
+    reporterOptions: {
+      reportDir: 'cypress/results',
+      overwrite: false,
+      html: false,
+      json: true,
+    }, //щоб cypress не перезавантажувався після кожної зміни
   e2e: {
     baseUrl: 'https://automationteststore.com',//URL що буде доступний по всьому проекту !!! без /, тоді cy.visit('/') на головну сторінку і т.д.
     /*retries: {

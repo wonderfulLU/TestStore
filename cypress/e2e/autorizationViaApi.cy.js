@@ -2,18 +2,25 @@
 
 import user from "../fixtures/user.json";
 import { loginViaApi } from "../support/helper";
-import loginPage from "../support/pages/LoginPage";
 
-it('Autorization Via API', () => { 
+beforeEach('Login', () => {
 
-  loginViaApi(user) 
-  
-  
+  loginViaApi(user);
+});
 
-  }) 
+it('Autorization Via API', () => {
 
+  cy.visit('/index.php?rt=account/account');
+  //cy.get('span.subtext').should('contain', user.firstName);
+  //findProduct(user);
+
+})
   //Написати хелпер функцію з авторизацією через http запит у проекті для https://automationteststore.com/
 //Написати будь-який тест з використанням цієї функції
 
-  
+
+
+
+
+
 

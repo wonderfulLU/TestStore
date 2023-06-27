@@ -23,5 +23,18 @@ class LoginPage {
         this.getSubmitButton().click()
     }
 
+    getToken(){
+        return cy.get('input[name="csrftoken"]').invoke('val').then((token) => {         
+            return token;
+          })
+        };     
+
+    getInstance(){
+        return cy.get('input[name="csrfinstance"]').invoke('val').then((instance) => {         
+            return instance;
+          })
+        };
 }
+
 export default new LoginPage();
+
