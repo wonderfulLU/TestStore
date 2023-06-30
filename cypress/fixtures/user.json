@@ -1,0 +1,21 @@
+{
+    "firstName": "Anastasiya",
+    "lastName": "Lushkova",
+    "email": "111@mail.com",
+    "telephone": "+123456789",
+    "fax": "987654321",
+    "company": "UDS",
+    "address1": "street",
+    "address2": "space 57",
+    "city": "Kyiv",
+    "region": "Kyiv",
+    "postcode":"02000",
+    "country": "Ukraine",
+    "username": "Nassty",
+    "password": "123cghj",
+    
+    "keyword": "e", 
+    "category": "Makeup",
+    "quantity": "2",
+    "productName": "Lancome Hypnose Doll Lashes Mascara 4-Piece Gift Set"
+}
